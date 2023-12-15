@@ -1,0 +1,22 @@
+// Product.js
+import React from 'react';
+import { useCart } from './createContext';
+
+const Product = () => {
+  const { addToCart, removeFromCart, cartQuantity } = useCart();
+
+  return (
+    <div>
+      <h2>Product Name</h2>
+      <p>Description of the product.</p>
+      <p>Cart Quantity: {cartQuantity}</p>
+      {cartQuantity > 0 ? (
+        <button onClick={removeFromCart}>Remove from Cart</button>
+      ) : (
+        <button onClick={addToCart}>Add to Cart</button>
+      )}
+    </div>
+  );
+};
+
+export default Product;
